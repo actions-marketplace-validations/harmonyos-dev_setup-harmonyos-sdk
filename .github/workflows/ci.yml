@@ -19,11 +19,11 @@ jobs:
     steps:
       - name: Checkout
         id: checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Setup Node.js
         id: setup-node
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
           node-version-file: .node-version
           cache: npm
@@ -43,7 +43,12 @@ jobs:
     steps:
       - name: Checkout
         id: checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
+
+      - uses: actions/setup-java@v5
+        with:
+          distribution: 'zulu' # See 'Supported distributions' for available options
+          java-version: '17'
 
       - name: Test Local Action
         id: test-action
@@ -52,8 +57,6 @@ jobs:
       - name: Print Output
         id: output
         run: |
-          echo "${{ steps.test-action.outputs.sdk-path }}"
-          echo "PATH: $PATH"
-          
-          ls -l /harmonyos-sdk/
-          ls -l /harmonyos-sdk/sdkmanager/bin
+          echo sdkmgr --version
+          export JAVA_TOOL_OPTIONS="$JAVA_TOOL_OPTIONS -Duser.country=CN"
+          sdkmgr install toolchains:9 OpenHarmony/toolchains:9 --accept-license
