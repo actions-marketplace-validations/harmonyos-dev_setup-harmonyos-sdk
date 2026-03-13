@@ -37,14 +37,14 @@
     "extends": "./.github/linters/.eslintrc.yml"
   },
   "dependencies": {
-    "@actions/core": "^2.0.2",
+    "@actions/core": "^3.0.0",
     "adm-zip": "^0.5.16"
   },
   "devDependencies": {
-    "@babel/core": "^7.28.6",
+    "@babel/core": "^7.29.0",
     "@babel/eslint-parser": "^7.28.6",
-    "@babel/preset-env": "^7.28.6",
+    "@babel/preset-env": "^7.29.0",
     "@vercel/ncc": "^0.38.4",
-    "prettier": "^3.8.0"
+    "prettier": "^3.8.1"
   }
 }
