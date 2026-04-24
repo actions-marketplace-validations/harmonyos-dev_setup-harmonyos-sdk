@@ -37,8 +37,8 @@
     "extends": "./.github/linters/.eslintrc.yml"
   },
   "dependencies": {
-    "@actions/core": "^3.0.0",
-    "adm-zip": "^0.5.16"
+    "@actions/core": "^3.0.1",
+    "adm-zip": "^0.5.17"
   },
   "devDependencies": {
     "@babel/core": "^7.29.0",
